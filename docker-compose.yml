@@ -47,6 +47,10 @@ services:
       - 22000:80
     volumes:
       - ./nginx-data/upstreams.conf:/etc/nginx/conf.d/upstreams.conf:ro
+    depends_on:
+      - backend1
+      - backend2
+      - frontend
 
   backend2:
     container_name: backend2.service
